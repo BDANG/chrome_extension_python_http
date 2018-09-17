@@ -26,7 +26,13 @@ changeColor.onclick = function(element) {
   xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
   xhr.send();
-  bkg.console.log(xhr.responseText);
+
+  xhr.onreadystatechange = function() {//Call a function when the state changes.
+    if(xhr.readyState == 4 && xhr.status == 200) {
+        bkg.console.log(xhr.responseText);
+        bkg.alert("GET Reponse: "+xhr.responseText);
+    }
+  }
 
 
   let color = element.target.value;
@@ -50,6 +56,7 @@ postButton.onclick = function(element) {
   xhr.onreadystatechange = function() {//Call a function when the state changes.
     if(xhr.readyState == 4 && xhr.status == 200) {
         bkg.console.log(xhr.responseText);
+        bkg.alert("POST Reponse: "+xhr.responseText);
     }
   }
 

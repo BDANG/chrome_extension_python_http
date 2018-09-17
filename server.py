@@ -11,7 +11,7 @@ class SimpleHttpRequestHandler(BaseHTTPRequestHandler):
     def do_GET(self):
         self.send_response(200)
         self.end_headers()
-        self.wfile.write(b"Yoyoyo")
+        self.wfile.write(b"GET Response")
     
     def do_POST(self):
         content_length = int(self.headers["Content-Length"])
